@@ -1,0 +1,12 @@
+{
+    "env": [
+        {
+            "var": "PYTHONPATH",
+            "method": "prepend",
+            "value": [
+                "$HSITE/uv/$PY_UV_VERSION/.venv/Lib/site-packages",
+                "$HSITE/uv/$PY_UV_VERSION/.venv/lib/python$PY_VERSION/site-packages"
+            ]
+        }
+    ]
+}
