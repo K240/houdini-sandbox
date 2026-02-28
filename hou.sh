@@ -68,13 +68,16 @@ fi
 
 uv sync --directory "$UV_DIR"
 
+HOUDINI_INSTALL_ROOT_MAC="${HOUDINI_INSTALL_ROOT_MAC:-/Applications/Houdini}"
+HOUDINI_INSTALL_ROOT_MAC="${HOUDINI_INSTALL_ROOT_MAC%/}"
+
 CANDIDATES=(
-  "/Applications/Houdini/Houdini${HOU_FULLVER}/Houdini FX ${HOU_FULLVER}.app/Contents/MacOS/houdini"
-  "/Applications/Houdini/Houdini${HOU_FULLVER}/Houdini Core ${HOU_FULLVER}.app/Contents/MacOS/houdini"
-  "/Applications/Houdini/Houdini${HOU_FULLVER}/Houdini Indie ${HOU_FULLVER}.app/Contents/MacOS/houdini"
-  "/Applications/Houdini/Houdini${HOU_FULLVER}/Houdini Apprentice ${HOU_FULLVER}.app/Contents/MacOS/houdini"
-  "/Applications/Houdini/Houdini${HOU_FULLVER}/Frameworks/Houdini.framework/Versions/${HOU_FULLVER}/Resources/bin/houdini"
-  "/Applications/Houdini/Houdini${HOU_FULLVER}/Frameworks/Houdini.framework/Versions/Current/Resources/bin/houdini"
+  "${HOUDINI_INSTALL_ROOT_MAC}/Houdini${HOU_FULLVER}/Houdini FX ${HOU_FULLVER}.app/Contents/MacOS/houdini"
+  "${HOUDINI_INSTALL_ROOT_MAC}/Houdini${HOU_FULLVER}/Houdini Core ${HOU_FULLVER}.app/Contents/MacOS/houdini"
+  "${HOUDINI_INSTALL_ROOT_MAC}/Houdini${HOU_FULLVER}/Houdini Indie ${HOU_FULLVER}.app/Contents/MacOS/houdini"
+  "${HOUDINI_INSTALL_ROOT_MAC}/Houdini${HOU_FULLVER}/Houdini Apprentice ${HOU_FULLVER}.app/Contents/MacOS/houdini"
+  "${HOUDINI_INSTALL_ROOT_MAC}/Houdini${HOU_FULLVER}/Frameworks/Houdini.framework/Versions/${HOU_FULLVER}/Resources/bin/houdini"
+  "${HOUDINI_INSTALL_ROOT_MAC}/Houdini${HOU_FULLVER}/Frameworks/Houdini.framework/Versions/Current/Resources/bin/houdini"
 )
 
 HOUDINI_EXE=""

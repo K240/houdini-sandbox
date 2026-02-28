@@ -1,33 +1,26 @@
-# houdini-environment
+# houdini-sandbox
 
-Houdini を指定バージョンで起動し、対応する Python 環境を `uv` で同期するためのローカル環境セットです。
+Houdini Sandbox. Python 環境を `uv` で同期するためのローカル環境セットです。
 
-## 使い方
+## 起動方法
 
-### 1. `.env` を作成
+事前に `uv` をインストールし、`uv --version` が実行できる状態にしてください（インストール手順: https://docs.astral.sh/uv/getting-started/installation/）。
 
-`.env.example` をコピーして `.env` を作成し、利用するバージョンを設定します。
+1. `.env.example` をコピーして `.env` を作成
 
-```bash
-cp .env.example .env
+```powershell
+Copy-Item .env.example .env
 ```
 
-`.env` 例:
+2. 各 OS に応じて起動
 
-```dotenv
-HOUDINI_VERSION=22.0.631
-PYTHON_VERSION=3.13
-```
-
-### 2. スクリプトを実行
-
-### PowerShell
+### Windows (PowerShell)
 
 ```powershell
 .\hou.ps1
 ```
 
-### Batch
+### Windows (Batch)
 
 ```bat
 .\hou.bat
@@ -39,36 +32,12 @@ PYTHON_VERSION=3.13
 ./hou.sh
 ```
 
-## 既存の引数指定（後方互換）
+## 詳細ドキュメント
 
-引数指定もこれまで通り利用できます。
+- `HSITE + uv` の起動環境仕様: [docs/hsite-uv-environment.md](docs/hsite-uv-environment.md)
 
-1. Major（例: `21`）
-2. Minor（例: `0`）
-3. Patch（例: `631`）
-4. PythonVersion（例: `3.11` / `3.13`）
+## 免責事項
 
-例:
-
-```bash
-./hou.sh 22 0 631 3.13
-```
-
-## 動作概要
-
-- `HSITE` をスクリプト配置ディレクトリに設定
-- `HOU_VER` / `HOU_FULLVER` / `PY_VERSION` / `PY_UV_VERSION` を設定
-- `uv sync --directory ./uv/python3.11` のように実行
-- Houdini 実行ファイルを起動
-
-## 前提
-
-- Windows
-- Houdini が `C:\Program Files\Side Effects Software\Houdini <major>.<minor>.<patch>` にインストール済み
-- `uv` コマンドが利用可能
-
-### macOS 前提
-
-- macOS
-- Houdini が `/Applications/Houdini/Houdini<major>.<minor>.<patch>/` 配下にインストール済み
-- `uv` コマンドが利用可能
+- 本リポジトリは非公式の個人用サンプルであり、SideFX の公式サポート対象ではありません。
+- 本ツールの利用により生じたいかなる損害（データ損失・業務停止・環境破損等）についても、作成者は責任を負いません。
+- 本番環境で利用する前に、必ず検証環境で十分に動作確認し、必要なバックアップを取得してください。

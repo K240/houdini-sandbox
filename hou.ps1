@@ -97,5 +97,16 @@ $env:PY_UV_VERSION = "python$resolvedPythonVersion"
 
 uv sync --directory "$($env:HSITE)/uv/$($env:PY_UV_VERSION)"
 
-$houdiniExe = "c:\Program Files\Side Effects Software\Houdini $($env:HOU_FULLVER)\bin\houdini.exe"
+$houdiniInstallRootWindows = if ($env:HOUDINI_INSTALL_ROOT_WINDOWS) {
+    $env:HOUDINI_INSTALL_ROOT_WINDOWS
+}
+else {
+    "c:\Program Files\Side Effects Software"
+}
+
+$houdiniExe = Join-Path $houdiniInstallRootWindows "Houdini $($env:HOU_FULLVER)\bin\houdini.exe"
+if (-not (Test-Path -LiteralPath $houdiniExe)) {
+    throw "Houdini executable not found: $houdiniExe"
+}
+
 Start-Process -FilePath $houdiniExe
