@@ -7,6 +7,20 @@
                 "$HSITE/uv/$PY_UV_VERSION/.venv/Lib/site-packages",
                 "$HSITE/uv/$PY_UV_VERSION/.venv/lib/python$PY_VERSION/site-packages"
             ]
+        },
+        {
+            "var": "AMD_MTLX_ROOT",
+            "method": "set",
+            "value": [
+                "e:/Assets/AMD"
+            ]
+        },
+        {
+            "var": "HOUDINI_AMD_MTLX_DIR",
+            "method": "set",
+            "value": [
+                "e:/Assets/AMD"
+            ]
         }
     ]
 }
